@@ -34,8 +34,9 @@ public class Wallet {
             try {
                 c = Parser.swipeString();
                 System.out.println(c.toString());
-                cards.add(i, c);
-
+                    if (!cards.contains(c)) {
+                        cards.add(i, c);
+                    }
                 System.out.println("Would you like to upload this card to the magspoof? (y/n)");
                 scanner = new Scanner(System.in);
                 //Check to see if user wants to upload to the magspoof

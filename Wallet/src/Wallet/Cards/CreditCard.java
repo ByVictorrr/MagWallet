@@ -14,8 +14,9 @@ public class CreditCard extends Card{
 
     public CreditCard(String name, String cardNumber, String type, String unParsed, String credit_type){
         super(name,cardNumber,type,unParsed);
-        credit_type = credit_type;
+        this.credit_type= credit_type;
     }
+    public String getCreditType(){ return this.credit_type;}
     public String toString(){
         return super.toString() + "\nCredit Type: " + this.credit_type + "\n";
     }

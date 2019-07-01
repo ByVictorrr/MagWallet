@@ -5,4 +5,4 @@ file="/home/victor/VictorsWallet/Wallet/src/magspoof/magspoof.c"
 #Step 1.1 - replace track 1 and 2
 sed -i "32s/\".*\?\"/$1/" "$file"
 # Step 2 - upload the firmware to the attiny
-arduino --upload $file --port /dev/ttyACM0
+# arduino --upload $file --port /dev/ttyACM0

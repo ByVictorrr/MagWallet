@@ -15,6 +15,16 @@ abstract public class Card {
 		this.unParsed = unParsed;
 	}
 
+	public boolean equals(Object c){
+		//Step 1 - check if its an object of tyep card first
+		Card card;
+		if (c instanceof Card){
+			//Step 2 - check if each member is equal to
+			card = (Card)c;
+			return card.getUnParsed().equals(this.unParsed) && card.getName().equals(this.name) && card.getCardNumber().equals(this.cardNumber);
+		}
+		return false;
+	}
 	public void setCardNumber(String num){this.cardNumber = num;}
 	public void setName(String name){this.name = name;}
 	public String getName(){return this.name;}
