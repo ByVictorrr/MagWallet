@@ -62,6 +62,8 @@ public class ParserCreditCard extends Parser {
         return str_type;
     }
 
+
+
     //Returns name or null if match not found
     public static String getName(String swipe) {
         String name = null;
@@ -101,6 +103,7 @@ public class ParserCreditCard extends Parser {
             //Case 1 - if the swipe data matches one of the regex above
             if(Pattern.compile(regex_credit_types.get(i)).matcher(swipe).matches()){
                type = getCreditTypeUtility(i);
+               break;
             }
 
         }//for
