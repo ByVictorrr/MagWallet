@@ -33,6 +33,9 @@ use that instead of bringing your card around.
 
 * Mysql database to cards 
 
+	* Correlating name to table in mysql db
+	* use this column to store card objects 
+
 ## Materials
 
 * Magetic card reader
