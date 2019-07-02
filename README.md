@@ -1,4 +1,4 @@
-# MageticWallet - save your magnetic cards and upload to a magspoof
+# MagWallet - Magnetic Wallet
 
 ## Basic Idea
 Swipe your card using the magnetic card reader. This program allows one to save
