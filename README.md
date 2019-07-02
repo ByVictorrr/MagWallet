@@ -13,7 +13,7 @@ use that instead of bringing your card around.
 
 ### Step 2 - run the program
 
-* git clone https://github.com/byvictorrr/VictorsWallet
+* git clone https://github.com/byvictorrr/MagWallet
 
 * cd Wallet
 
