@@ -2,6 +2,9 @@ package Wallet;
 import DB.ConnectionConfiguration;
 import Wallet.Cards.*;
 import Wallet.Parsers.Parser;
+import com.google.gson.Gson;
+import jdk.nashorn.internal.parser.JSONParser;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -59,7 +62,7 @@ public class Wallet {
         try{
             while(rs.next()){
                 JSONObject o = new JSONObject();
-                o.put(rs.getMetaData().getColumnLabel(CARD_COLUMN), rs.getString(CARD_COLUMN))
+                o.put(rs.getMetaData().getColumnLabel(CARD_COLUMN), rs.getString(CARD_COLUMN));
             }
         }catch (Exception e) {
             e.printStackTrace();
@@ -67,17 +70,36 @@ public class Wallet {
         }
         return ja;
     }
+    private List<JSONObject> string_to_JSON_list(String json){
+        try {
+            JSONObject jo = new JSONObject(json);
+            JSONArray ja = jo.getJSONArray("Cards");
+            List<JSONObject> jo_list = new ArrayList<>();
+            for(int i = 0; i< ja.length(); i++){
+               jo_list.add(ja.getJSONObject(i));
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+        return jo_list;
+    }
     public List<Card> download_cards_from_mysql(){
         String query = "SELECT cards FROM Wallet WHERE user_name = '" + this.user_name + "'";
         List<Card> extracted_cards = new ArrayList<>();
         ResultSet rs;
-        JSONArray
-        String card;
+        List<JSONObject> jo_list = new ArrayList<>();
+        String cards;
+        ObjectMapper object_mapper = new ObjectMapper();
         try{
+            //Step 1 - get the data from cards
             rs = ConnectionConfiguration.getConnection().createStatement().executeQuery(query);
-
-            System.out.println(rs.getString(CARD_COLUMN));
-            System.out.println(rs.getArray(CARD_COLUMN));
+            cards = rs.getString("cards");
+            jo_list = string_to_JSON_list(cards);
+            //Step 2 - parse list of json object to list of card objects
+           for(int i = 0; i<jo_list.size(); i++) {
+                extracted_cards.add(object_mapper.read()-);
+           }
             //TODO: add to extracted cards
         }catch(Exception e){
             e.printStackTrace();
@@ -146,10 +168,10 @@ public class Wallet {
         try{
             for(Card c: this.cards){
                list_of_maps.add(new HashMap<>(4));
-               list_of_maps.get(index).put("Name", c.getName());
-               list_of_maps.get(index).put("Card Number", c.getCardNumber());
-               list_of_maps.get(index).put("Type", c.getType());
-               list_of_maps.get(index).put("Unparsed", c.getUnParsed());
+               list_of_maps.get(index).put("name", c.getName());
+               list_of_maps.get(index).put("cardNumber", c.getCardNumber());
+               list_of_maps.get(index).put("type", c.getType());
+               list_of_maps.get(index).put("unParsed", c.getUnParsed());
                ja.put(list_of_maps.get(index));
                index++;
             }

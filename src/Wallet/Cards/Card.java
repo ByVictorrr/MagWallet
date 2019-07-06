@@ -19,7 +19,7 @@ abstract public class Card {
         if (c instanceof Card) {
             //Step 2 - check if each member is equal to
             card = (Card) c;
-            return card.getUnParsed().equals(this.unParsed) && card.getName().equals(this.name) && card.getCardNumber().equals(this.cardNumber);
+            return card.getUnParsed().equals(this.unParsed) && card.getName().equals(this.name) && card.getCardNumber().equals(this.cardNumber) && card.getType().equals(this.type);
         }
         return false;
     }
