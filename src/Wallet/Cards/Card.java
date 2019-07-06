@@ -1,6 +1,6 @@
 package Wallet.Cards;
 
-abstract public class Card {
+public class Card {
     private String name;
     private String cardNumber;
     private String type;
@@ -11,6 +11,12 @@ abstract public class Card {
         this.cardNumber = cardNumber;
         this.type = type;
         this.unParsed = unParsed;
+    }
+    public Card(){
+       this.name = "";
+       this.cardNumber = "";
+       this.type = "";
+       this.unParsed = "";
     }
 
     public boolean equals(Object c) {

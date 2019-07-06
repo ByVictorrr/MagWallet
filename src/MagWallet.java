@@ -36,14 +36,15 @@ public class MagWallet {
                 //go through each loaded usernames
                 for ( Pair<String, String> uname_pass : download_usernames_passwords) {
                     //Case 1 - if the name is already in data base
-                    if(uname_pass.getKey().equals(userName) && uname_pass.getValue().equals(password))
-                        System.out.println(userName + "is already in our data base would you like to see your wallet (y/n)");
+                    if(uname_pass.getKey().equals(userName) && uname_pass.getValue().equals(password)) {
+                        System.out.println(userName + " is already in our data base would you like to see your wallet (y/n)");
                         if ((new Scanner(System.in)).next().equals("y")) {
                             w = new Wallet(userName, password);
                             wallets.add(index++, w);
                             w.look_inside();
                         }
                         new_wallet_flag = false;
+                    }
                 }//for
                 //For no user name in our database
                 if(new_wallet_flag == true){
