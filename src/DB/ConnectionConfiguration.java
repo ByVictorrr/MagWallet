@@ -12,7 +12,7 @@ public class ConnectionConfiguration {
         Connection connection = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://ec2-13-59-188-28.us-east-2.compute.amazonaws.com:3306/phpmyadmin", "victor", "angels33");
+            connection = DriverManager.getConnection("jdbc:mysql://ec2-13-59-188-28.us-east-2.compute.amazonaws.com:3306/phpmyadmin", "victor", "pasword");
         } catch (Exception e) {
             e.printStackTrace();
         }
