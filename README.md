@@ -26,9 +26,13 @@ use that instead of bringing your card around.
 ### Options
 
 1.) Scan a card
+
 2.) Upload a Card to your database.
+
 3.) Upload a card to the Magspoof
+
 4.) View all the cards saved
+
 5.) Download saved cards
 
 
