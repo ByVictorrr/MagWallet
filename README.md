@@ -25,16 +25,12 @@ use that instead of bringing your card around.
 
 ### Options
 
-1.) Upload any card to the magspoof
+1.) Scan a card
+2.) Upload a Card to your database.
+3.) Upload a card to the Magspoof
+4.) View all the cards saved
+5.) Download saved cards
 
-2.) Look at all cards saved
-
-## Future Work
-
-* Mysql database to cards 
-
-	* Correlating name to table in mysql db
-	* use this column to store card objects 
 
 ## Materials
 
