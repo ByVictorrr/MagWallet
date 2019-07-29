@@ -42,7 +42,7 @@ use that instead of bringing your card around.
 
 * Credit card or cal poly card
 
-* Magspoof
+* [Magspoof](https://github.com/samyk/magspoof)
 	* Sparkfun - tiny programmer
 
 
