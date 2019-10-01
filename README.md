@@ -1,9 +1,7 @@
 # MagWallet - Magnetic Wallet
 
 ## Basic Idea
-Swipe your card using the magnetic card reader. This program allows one to save
-there cards as well as upload there card info on a magspoof so one could just
-use that instead of bringing your card around.
+Swipe your card using a magnetic card reader. This program gives you an option to upload the swiped card info on a [Magspoof](https://github.com/samyk/magspoof). The Magspoof allows you to use a credit card wirelessly. Other options are specified below.
 
 ## Setup 
 
