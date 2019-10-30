@@ -13,10 +13,9 @@ import java.util.Scanner;
 public class MagWallet {
 
 	private static List<Wallet> wallets;
-
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 		int index = 0;
-        List<Pair<String,String>> download_usernames_passwords = new ArrayList<>();
+        	List<Pair<String,String>> download_usernames_passwords = new ArrayList<>();
 		Scanner scanner;
 		String prompt;
 		String userName;
@@ -24,26 +23,26 @@ public class MagWallet {
 		Wallet w; //new wallet 
 		boolean new_wallet_flag;
 		wallets = new ArrayList<Wallet>();
-        Connection connection = ConnectionConfiguration.getConnection();
+        	Connection connection = ConnectionConfiguration.getConnection();
 
 		while(true){
 			new_wallet_flag = true;
 			System.out.println("Welcome to MagWallet - please enter your user name:");
 			userName = (new Scanner(System.in)).next();
-            System.out.println("Now please enter your corresponding password: ");
-            password = (new Scanner(System.in)).next();
-            download_usernames_passwords = load_usernames_and_pass();
-                //go through each loaded usernames
-                for ( Pair<String, String> uname_pass : download_usernames_passwords) {
-                    //Case 1 - if the name is already in data base
-                    if(uname_pass.getKey().equals(userName) && uname_pass.getValue().equals(password)) {
+            		System.out.println("Now please enter your corresponding password: ");
+            		password = (new Scanner(System.in)).next();
+           		download_usernames_passwords = load_usernames_and_pass();
+                	//go through each loaded usernames
+                	for ( Pair<String, String> uname_pass : download_usernames_passwords) {
+                    	//Case 1 - if the name is already in data base
+                    	if(uname_pass.getKey().equals(userName) && uname_pass.getValue().equals(password)) {
                         System.out.println(userName + " is already in our data base would you like to see your wallet (y/n)");
                         if ((new Scanner(System.in)).next().equals("y")) {
                             w = new Wallet(userName, password);
                             wallets.add(index++, w);
                             w.look_inside();
                         }
-                        new_wallet_flag = false;
+			new_wallet_flag = false;
                     }
                 }//for
                 //For no user name in our database
@@ -59,14 +58,15 @@ public class MagWallet {
                         }
                     }
                 }
-		}//while
+	}//while
     }//main
+	
     private static List<Pair<String,String>> load_usernames_and_pass(){
-        List<Pair<String, String>> usernames_passwords = new ArrayList<>();
-        String query = "SELECT user_name, password FROM Wallet";
-        ResultSet rs;
-        final int USERNAME_COLUMN = 1;
-        final int PASSWORD_COLUMN = 2;
+       List<Pair<String, String>> usernames_passwords = new ArrayList<>();
+       String query = "SELECT user_name, password FROM Wallet";
+       ResultSet rs;
+       final int USERNAME_COLUMN = 1;
+       final int PASSWORD_COLUMN = 2;
        try {
            rs = ConnectionConfiguration.getConnection().createStatement().executeQuery(query);
            //Go through each username and add to usernames
